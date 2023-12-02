@@ -1,5 +1,5 @@
-const registerForm = document.querySelector(".login-form");
-registerForm.addEventListener("submit", submitHandler);
+const loginForm = document.querySelector(".login-form");
+loginForm.addEventListener("submit", submitHandler);
 
 function submitHandler(event) {
   event.preventDefault();
@@ -13,7 +13,5 @@ function submitHandler(event) {
     email: email.trim(),
     password: password.trim(),
   };
-  console.log(
-    `login: ${trimmedValues.email}, password: ${trimmedValues.password}`
-  );
+  console.log(trimmedValues);
 }

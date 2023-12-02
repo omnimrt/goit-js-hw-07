@@ -13,6 +13,7 @@ createButton.addEventListener("click", () => {
   const amount = Number(userInput.value);
   if (amount >= 1 && amount <= 100) {
     createBoxes(amount);
+    userInput.value = "";
   }
 });
 
@@ -21,16 +22,18 @@ destroyButton.addEventListener("click", destroyBoxes);
 function createBoxes(amount) {
   boxesDiv.innerHTML = "";
 
+  let initialBoxSize = 30;
+  let boxSizeIncrement = 10;
   let size = 30;
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
     box.classList.add("box");
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
+    box.style.width = `${initialBoxSize}px`;
+    box.style.height = `${initialBoxSize}px`;
     box.style.backgroundColor = getRandomHexColor();
     boxesDiv.appendChild(box);
 
-    size += 10;
+    initialBoxSize += boxSizeIncrement;
   }
 }
 
